@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgresdb:
+    image: registry.cn-hangzhou.aliyuncs.com/yangyuanpeng/postgresql:latest
+    environment:
+      - TZ=Asia/Shanghai
+      - POSTGRES_PASSWORD=admin123
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - postgresql-net
+networks:
+  postgresql-net:
+    external: true
